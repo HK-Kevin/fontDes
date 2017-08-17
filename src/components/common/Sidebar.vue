@@ -1,6 +1,6 @@
 <template>
-    <div class="sidebar">
-        <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" theme="dark" unique-opened router>
+    <div class="sidebar" >
+        <el-menu style="height:calc(100% - 10px);overflow: auto" :default-active="onRoutes" class="el-menu-vertical-demo" theme="dark" unique-opened router>
             <template v-for="item in items">
                 <template v-if="item.subs">
                     <el-submenu :index="item.index">
@@ -27,27 +27,17 @@
                     {
                         icon: 'el-icon-setting',
                         index: 'readme',
-                        title: '自述'
+                        title: 'HTML'
                     },
                     {
-                        icon: 'el-icon-menu',
+                        icon: 'el-icon-setting',
                         index: '2',
-                        title: '表格',
-                        subs: [
-                            {
-                                index: 'basetable',
-                                title: '基础表格'
-                            },
-                            {
-                                index: 'vuetable',
-                                title: 'Vue表格组件'
-                            }
-                        ]
+                        title: 'CSS',
                     },
                     {
-                        icon: 'el-icon-date',
+                        icon: 'el-icon-setting',
                         index: '3',
-                        title: '表单',
+                        title: 'JS',
                         subs: [
                             {
                                 index: 'baseform',
@@ -67,16 +57,76 @@
                             }
                         ]
                     },
+
                     {
-                        icon: 'el-icon-star-on',
-                        index: 'basecharts',
-                        title: '图表'
+                        icon: 'el-icon-setting',
+                        index: '0',
+                        title: 'jQuery'
                     },
                     {
-                        icon: 'el-icon-upload2',
-                        index: 'drag',
-                        title: '拖拽'
-                    }
+                        icon: 'el-icon-setting',
+                        index: '9',
+                        title: 'Ajax'
+                    },
+                    {
+                        icon: 'el-icon-setting',
+                        index: '10',
+                        title: '算法'
+                    },
+                    {
+                        icon: 'el-icon-setting',
+                        index: '11',
+                        title: 'ES6'
+                    },
+                    {
+                        icon: 'el-icon-setting',
+                        index: '4',
+                        title: 'MVC系列',
+                        subs: [
+                            {
+                                index: 'basetable',
+                                title: 'React'
+                            },
+                            {
+                                index: 'vuetable',
+                                title: 'Vue'
+                            }
+                        ]
+                    },
+                    {
+                        icon: 'el-icon-setting',
+                        index: '12',
+                        title: '打包系列'
+                    },
+                    {
+                        icon: 'el-icon-setting',
+                        index: '5',
+                        title: 'Node后端系列',
+                        subs: [
+                            {
+                                index: 'basetable',
+                                title: 'Node.js'
+                            },
+                            {
+                                index: 'vuetable',
+                                title: 'MongoDB'
+                            },
+                            {
+                                index: 'vuetable',
+                                title: 'Linux'
+                            }
+                        ]
+                    },
+                    {
+                        icon: 'el-icon-setting',
+                        index: '13',
+                        title: '简历模板'
+                    },
+                    {
+                        icon: 'el-icon-setting',
+                        index: '14',
+                        title: '前端插件网站 '
+                    },
                 ]
             }
         },
