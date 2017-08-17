@@ -9,8 +9,14 @@ import "babel-polyfill";
 
 Vue.use(ElementUI);
 
+let baseUrl = 'http://47.94.94.52:3000';
 
+axios.defaults.baseURL = baseUrl;
 Vue.prototype.$axios = axios;
+
+
+
+
 new Vue({
     router,
     render: h => h(App)

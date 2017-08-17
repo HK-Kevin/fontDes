@@ -26,93 +26,75 @@
                 items: [
                     {
                         icon: 'el-icon-setting',
-                        index: 'readme',
+                        index: 'html',
                         title: 'HTML'
                     },
                     {
                         icon: 'el-icon-setting',
-                        index: '2',
+                        index: 'css',
                         title: 'CSS',
                     },
                     {
                         icon: 'el-icon-setting',
-                        index: '3',
+                        index: 'js',
                         title: 'JS',
-                        subs: [
-                            {
-                                index: 'baseform',
-                                title: '基本表单'
-                            },
-                            {
-                                index: 'vueeditor',
-                                title: '编辑器'
-                            },
-                            {
-                                index: 'markdown',
-                                title: 'markdown'
-                            },
-                            {
-                                index: 'upload',
-                                title: '文件上传'
-                            }
-                        ]
                     },
 
                     {
                         icon: 'el-icon-setting',
-                        index: '0',
+                        index: 'jquery',
                         title: 'jQuery'
                     },
                     {
                         icon: 'el-icon-setting',
-                        index: '9',
+                        index: 'ajax',
                         title: 'Ajax'
                     },
                     {
                         icon: 'el-icon-setting',
-                        index: '10',
+                        index: 'algorithm',
                         title: '算法'
                     },
                     {
                         icon: 'el-icon-setting',
-                        index: '11',
+                        index: 'es6',
                         title: 'ES6'
                     },
                     {
                         icon: 'el-icon-setting',
-                        index: '4',
+                        index: '1',
                         title: 'MVC系列',
                         subs: [
                             {
-                                index: 'basetable',
+                                index: 'react',
                                 title: 'React'
                             },
                             {
-                                index: 'vuetable',
+                                index: 'vue',
                                 title: 'Vue'
                             }
                         ]
                     },
                     {
                         icon: 'el-icon-setting',
-                        index: '12',
+                        index: 'webpack',
                         title: '打包系列'
                     },
                     {
                         icon: 'el-icon-setting',
-                        index: '5',
+                        index: '2',
                         title: 'Node后端系列',
                         subs: [
                             {
-                                index: 'basetable',
+                                index: 'node',
                                 title: 'Node.js'
                             },
                             {
-                                index: 'vuetable',
+                                index: 'mongo',
                                 title: 'MongoDB'
                             },
                             {
-                                index: 'vuetable',
+                                index: 'linux',
                                 title: 'Linux'
                             }
                         ]
@@ -142,9 +124,9 @@
     .sidebar{
         display: block;
         position: absolute;
-        width: 250px;
+        width: 200px;
         left: 0;
-        top: 70px;
+        top: 50px;
         bottom:0;
         background: #2E363F;
     }
