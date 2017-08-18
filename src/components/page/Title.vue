@@ -5,7 +5,7 @@
                 <el-breadcrumb-item><i class="el-icon-date"></i> HTML</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
-        <title-head :page="pageInfo" @changePage="updateDate"></title-head>
+        <title-head :page="pageInfo"   @seeData ="getData" @updata="updateData" @changePage="updateData" @sortGet ="updateData"></title-head>
         <title-page :titleData="title" :page="pageInfo"></title-page>
     </div>
 </template>
@@ -13,34 +13,43 @@
 <script>
     import TitlePage from './TitlePage.vue'
     import TitleHead from './TitleHead.vue'
+    import hljs from 'highlight.js'
     export default {
         data: function () {
             return {
-                title: {},
+                title: {a:1},
                 pageInfo: {
                     title_page: 1,
-                    limit: 2,
+                    limit: 4,
                 },
 
                 titleData: ''
             }
         },
         created(){
-
-            this.updateDate()
+            this.updateData()
         },
         watch: {
             '$route': function (val) {
-                this.updateDate()
+                this.pageInfo.title_page =1;
+                this.updateData();
+                this.$forceUpdate()
             }
         },
+        mounted(){
+            hljs.highlightCode();
+        },
         methods: {
-            updateDate(){
+            getData(data){
+              this.title = data
+            },
+            updateData(condition){
+                let sortCondition = condition || '';
                 let titleType = this.$route.path.replace('/', '');
-
-                let searchCon = {page: this.pageInfo.title_page, limit: this.pageInfo.limit, type: [titleType]};
+                let searchCon = {page: this.pageInfo.title_page, limit: this.pageInfo.limit, type: [titleType],condition:sortCondition};
                 this.$axios.post('/typeTitles', searchCon).then(res => {
-                    this.title = res.data
+                    this.title = res.data;
+
                 })
             }
 

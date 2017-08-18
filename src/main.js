@@ -10,10 +10,18 @@ import "babel-polyfill";
 Vue.use(ElementUI);
 
 let baseUrl = 'http://47.94.94.52:3000';
+let mockUrl =  'http://192.168.205.123:3000';
 
-axios.defaults.baseURL = baseUrl;
+axios.defaults.baseURL = mockUrl;
 Vue.prototype.$axios = axios;
 
+
+import 'highlight.js/styles/github-gist.css'
+import hljs from 'highlight.js'
+hljs.highlightCode = function () {
+    let blocks = document.querySelectorAll('pre code');
+    [].forEach.call(blocks, hljs.highlightBlock);
+};
 
 
 

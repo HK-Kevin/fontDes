@@ -1,12 +1,11 @@
 <template>
     <div style="width: 80%">
-
-        <el-form :inline="true"  class="demo-form-inline" style="width: 100%">
+        <el-form :inline="true" class="demo-form-inline" style="width: 100%">
             <el-form-item label="" style="width: 20%">
-                <el-input  placeholder="title" icon="search"></el-input>
+                <el-input placeholder="title" icon="search" v-model="searchData"></el-input>
             </el-form-item>
-            <el-button type="primary" @click="onSubmit">查询</el-button>
-            <el-select v-model="value" placeholder="排序条件" style="width: 110px">
+            <el-button type="primary" @click="onSearch">查询</el-button>
+            <el-select v-model="value" placeholder="排序条件" @change="sort" style="width: 110px">
                 <el-option
                     v-for="item in options"
                     :key="item.value"
@@ -18,9 +17,9 @@
                 <el-pagination
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
-                    :current-page.sync="currentPage"
+                    :current-page="page.title_page"
                     :page-size="200"
-                    layout="prev, pager, next, jumper"
+                    layout="prev, pager,    next, jumper"
                     :total="1000">
                 </el-pagination>
             </el-form-item>
@@ -31,38 +30,47 @@
 
 <script>
     export default {
-        props:['page'],
+        props: ['page'],
         data: function () {
             return {
-                currentPage:1,
+                searchData: '',
+                currentPage: 1,
                 options: [{
-                    value: '选项1',
+                    value: 'titleClickTimes',
                     label: '火热度'
                 }, {
-                    value: '选项2',
+                    value: 'important',
                     label: '重要度'
                 }, {
-                    value: '选项3',
+                    value: 'hard',
                     label: '难度'
                 }],
                 value: ''
             }
         },
-        methods:{
+        methods: {
             handleSizeChange(val){
 
-
+            },
+            sort(condition){
+                this.$emit("sortGet",condition)
             },
             handleCurrentChange(val){
-                this.page. title_page=val
-               this.$emit('changePage')
+                this.page.title_page = val;
+                this.$emit('changePage')
             },
-            onSubmit(){
-
+            onSearch(){
+                if (!this.searchData) {
+                    this.$emit("updata");
+                    return;
+                }
+                let titleType = this.$route.path.replace('/', '');
+                this.$axios.get(`/search?title=${this.searchData}&type=${titleType}`).then(res => {
+                    this.$emit("seeData",res.data)
+                })
             }
         },
-        components:{
-        }
+        components: {}
     }
 </script>
 
