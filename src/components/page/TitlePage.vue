@@ -6,7 +6,6 @@
                     <el-form :inline="true" style="width: 90%;display: inline-block" class="demo-form-inline">
                         <el-form-item style="width: 70%;font-size: 18px" label="">{{index + titleNum}}. {{item.title}}
 
-
                         </el-form-item>
                         <el-form-item style="width: 20%" label="">
                             <i class="el-icon-star-on" v-for="n in item.hard" :key="n"></i>
@@ -17,8 +16,8 @@
                     </el-form>
                 </template>
                 <div v-html="item.answer"></div>
-                <el-col :span="6" :offset="18">
-                    <el-button type="primary" size="small" icon="el-icon-d-arrow-right">进入详情</el-button>
+                <el-col :span="6" :offset="22" style="margin-bottom: 10px">
+                    <el-button type="primary" @click="goToDetail(item._id)" size="small" icon="el-icon-d-arrow-right">进入详情</el-button>
                 </el-col>
             </el-collapse-item>
         </el-collapse>
@@ -40,6 +39,9 @@
             }
         },
         methods: {
+            goToDetail(id){
+                this.$router.push(`/detail?id=${id}`);
+            },
             userClick(id){
                 hljs.highlightCode();
                 if (!id)return;

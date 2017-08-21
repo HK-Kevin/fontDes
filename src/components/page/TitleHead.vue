@@ -53,6 +53,7 @@
 
             },
             sort(condition){
+                console.log(condition)
                 this.$emit("sortGet",condition)
             },
             handleCurrentChange(val){

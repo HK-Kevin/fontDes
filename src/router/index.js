@@ -57,6 +57,10 @@ export default new Router({
                     path: '/node',
                     component: resolve => require(['../components/page/Title.vue'], resolve)
                 },
+                {
+                    path: '/detail',
+                    component: resolve => require(['../components/page/DetailPage.vue'], resolve)
+                },
 
 
             ]

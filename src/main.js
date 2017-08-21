@@ -12,7 +12,7 @@ Vue.use(ElementUI);
 let baseUrl = 'http://47.94.94.52:3000';
 let mockUrl =  'http://192.168.205.123:3000';
 
-axios.defaults.baseURL = mockUrl;
+axios.defaults.baseURL = baseUrl;
 Vue.prototype.$axios = axios;
 
 
