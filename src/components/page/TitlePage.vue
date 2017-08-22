@@ -41,6 +41,7 @@
         methods: {
             goToDetail(id){
                 this.$router.push(`/detail?id=${id}`);
+                this.$forceUpdate()
             },
             userClick(id){
                 hljs.highlightCode();

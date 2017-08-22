@@ -22,7 +22,6 @@
                     title_page: 1,
                     limit: 4,
                 },
-
                 titleData: ''
             }
         },
@@ -46,6 +45,7 @@
             updateData(condition){
                 let sortCondition = condition || '';
                 let titleType = this.$route.path.replace('/', '');
+                console.log(condition);
                 let searchCon = {page: this.pageInfo.title_page, limit: this.pageInfo.limit, type: [titleType],condition:sortCondition};
                 this.$axios.post('/typeTitles', searchCon).then(res => {
                     this.title = res.data;

@@ -45,7 +45,8 @@
                     value: 'hard',
                     label: '难度'
                 }],
-                value: ''
+                value: '',
+                condition:'titleClickTimes'
             }
         },
         methods: {
@@ -53,12 +54,12 @@
 
             },
             sort(condition){
-                console.log(condition)
+                this.condition = condition;
                 this.$emit("sortGet",condition)
             },
             handleCurrentChange(val){
                 this.page.title_page = val;
-                this.$emit('changePage')
+                this.$emit('changePage',this.condition)
             },
             onSearch(){
                 if (!this.searchData) {

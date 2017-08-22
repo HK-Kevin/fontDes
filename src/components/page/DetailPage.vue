@@ -32,7 +32,7 @@
             <div class="answer"  v-html="form.answer">
             </div>
         </div>
-        <title-list :listData="allTypeTitle" @update="getData" style="position: fixed;right: 0;top: 70px;width: 15%"></title-list>
+        <title-list :listData="allTypeTitle" @update="updateListData" style="position: fixed;right: 0;top: 70px;width: 15%"></title-list>
     </div>
 </template>
 
@@ -51,6 +51,9 @@
             this.getData()
         },
         methods: {
+            updateListData(id){
+                this.getData(id)
+            },
             getData(bId){
                 let id = bId || this.$route.query.id;
                 this.$axios.get(`/oneTitle?id=${id}`).then(res => {
@@ -79,6 +82,5 @@
         color: #7d7d7d;
         font-size: 20px;
         padding: 3px 4px;
-
     }
 </style>
